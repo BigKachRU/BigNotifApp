@@ -1,0 +1,44 @@
+﻿@using BigNotifApp.Models;
+@model List<User>
+
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>List of Users</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            First Name
+        </th>
+        <th>
+            Last Name
+        </th>
+        <th>
+            Email
+        </th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(model => item.FirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.LastName)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.Email)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "EditUser", new { id = item.UserID })
+
+                @Html.ActionLink("Details", "DetailsOfUser", new { id = item.UserID })
+
+                @Html.ActionLink("Delete", "DeleteUser", new { id = item.UserID })
+            </td>
+        </tr>
+    }
+</table>
